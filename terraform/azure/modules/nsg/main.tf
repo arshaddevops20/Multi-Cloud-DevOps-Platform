@@ -32,19 +32,19 @@ resource "azurerm_network_security_group" "private" {
 
 resource "azurerm_network_security_rule" "http" {
 
-  name                        = "Allow-HTTP"
-  priority                    = 100
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
+  name      = "Allow-HTTP"
+  priority  = 100
+  direction = "Inbound"
+  access    = "Allow"
+  protocol  = "Tcp"
 
-  source_port_range           = "*"
-  destination_port_range      = "80"
+  source_port_range      = "*"
+  destination_port_range = "80"
 
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
+  source_address_prefix      = "*"
+  destination_address_prefix = "*"
 
-  resource_group_name         = var.resource_group_name
+  resource_group_name = var.resource_group_name
 
   network_security_group_name = azurerm_network_security_group.public.name
 }
@@ -53,19 +53,19 @@ resource "azurerm_network_security_rule" "http" {
 
 resource "azurerm_network_security_rule" "https" {
 
-  name                        = "Allow-HTTPS"
-  priority                    = 110
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
+  name      = "Allow-HTTPS"
+  priority  = 110
+  direction = "Inbound"
+  access    = "Allow"
+  protocol  = "Tcp"
 
-  source_port_range           = "*"
-  destination_port_range      = "443"
+  source_port_range      = "*"
+  destination_port_range = "443"
 
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
+  source_address_prefix      = "*"
+  destination_address_prefix = "*"
 
-  resource_group_name         = var.resource_group_name
+  resource_group_name = var.resource_group_name
 
   network_security_group_name = azurerm_network_security_group.public.name
 }
@@ -78,25 +78,25 @@ resource "azurerm_network_security_rule" "https" {
 
 resource "azurerm_network_security_rule" "vnet" {
 
-  name                        = "Allow-VNet"
+  name = "Allow-VNet"
 
-  priority                    = 100
+  priority = 100
 
-  direction                   = "Inbound"
+  direction = "Inbound"
 
-  access                      = "Allow"
+  access = "Allow"
 
-  protocol                    = "*"
+  protocol = "*"
 
-  source_port_range           = "*"
+  source_port_range = "*"
 
-  destination_port_range      = "*"
+  destination_port_range = "*"
 
-  source_address_prefix       = "VirtualNetwork"
+  source_address_prefix = "VirtualNetwork"
 
-  destination_address_prefix  = "VirtualNetwork"
+  destination_address_prefix = "VirtualNetwork"
 
-  resource_group_name         = var.resource_group_name
+  resource_group_name = var.resource_group_name
 
   network_security_group_name = azurerm_network_security_group.private.name
 }

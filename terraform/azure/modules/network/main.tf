@@ -20,9 +20,9 @@ resource "azurerm_resource_group" "this" {
 
 resource "azurerm_virtual_network" "this" {
 
-  name                = local.vnet_name
+  name = local.vnet_name
 
-  location            = azurerm_resource_group.this.location
+  location = azurerm_resource_group.this.location
 
   resource_group_name = azurerm_resource_group.this.name
 

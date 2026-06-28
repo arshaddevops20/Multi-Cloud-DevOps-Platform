@@ -173,3 +173,20 @@ module "acr" {
   resource_group_name = module.network.resource_group_name
 
 }
+
+
+##################################################
+# Managed Identity
+##################################################
+
+module "managedidentity" {
+
+  source = "../../modules/managedidentity"
+
+  project_name = var.project_name
+  environment  = var.environment
+  owner        = var.owner
+
+  location            = var.location
+  resource_group_name = module.network.resource_group_name
+}
