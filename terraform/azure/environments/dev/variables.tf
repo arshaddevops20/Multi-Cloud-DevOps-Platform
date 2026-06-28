@@ -25,3 +25,7 @@ variable "environment" {
 variable "owner" {
   default = "Mohd Arshad"
 }
+
+variable "tenant_id" {
+  type = string
+}

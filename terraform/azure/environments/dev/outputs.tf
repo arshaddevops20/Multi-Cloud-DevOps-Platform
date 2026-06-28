@@ -30,3 +30,12 @@ output "managed_identity_client_id" {
 output "managed_identity_principal_id" {
   value = module.managedidentity.principal_id
 }
+
+
+output "keyvault_name" {
+  value = module.keyvault.keyvault_name
+}
+
+output "keyvault_uri" {
+  value = module.keyvault.vault_uri
+}

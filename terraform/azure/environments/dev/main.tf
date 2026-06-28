@@ -190,3 +190,23 @@ module "managedidentity" {
   location            = var.location
   resource_group_name = module.network.resource_group_name
 }
+
+
+##################################################
+# Key Vault
+##################################################
+
+module "keyvault" {
+
+  source = "../../modules/keyvault"
+
+  project_name = var.project_name
+  environment  = var.environment
+  owner        = var.owner
+
+  location            = var.location
+  resource_group_name = module.network.resource_group_name
+
+  tenant_id = var.tenant_id
+
+}
