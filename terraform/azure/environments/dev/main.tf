@@ -210,3 +210,48 @@ module "keyvault" {
   tenant_id = var.tenant_id
 
 }
+
+
+##################################################
+# Log Analytics
+##################################################
+
+module "loganalytics" {
+
+  source = "../../modules/loganalytics"
+
+  project_name = var.project_name
+  environment  = var.environment
+  owner        = var.owner
+
+  location            = var.location
+  resource_group_name = module.network.resource_group_name
+
+}
+
+
+##################################################
+# AKS
+##################################################
+
+module "aks" {
+
+  source = "../../modules/aks"
+
+  project_name = var.project_name
+  environment  = var.environment
+  owner        = var.owner
+
+  location            = var.location
+  resource_group_name = module.network.resource_group_name
+
+  subnet_id = module.network.private_subnet_id
+
+  managed_identity_id           = module.managedidentity.id
+  managed_identity_principal_id = module.managedidentity.principal_id
+
+  acr_id = module.acr.acr_id
+
+  log_analytics_workspace_id = module.loganalytics.workspace_id
+
+}

@@ -39,3 +39,24 @@ output "keyvault_name" {
 output "keyvault_uri" {
   value = module.keyvault.vault_uri
 }
+
+
+output "log_analytics_workspace_name" {
+  value = module.loganalytics.workspace_name
+}
+
+output "log_analytics_workspace_id" {
+  value = module.loganalytics.workspace_id
+}
+
+output "aks_cluster_name" {
+  value = module.aks.cluster_name
+}
+
+output "aks_fqdn" {
+  value = module.aks.fqdn
+}
+
+output "oidc_issuer" {
+  value = module.aks.oidc_issuer_url
+}
