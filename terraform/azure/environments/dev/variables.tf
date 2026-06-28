@@ -29,3 +29,7 @@ variable "owner" {
 variable "tenant_id" {
   type = string
 }
+
+variable "admin_group_object_ids" {
+  type = list(string)
+}

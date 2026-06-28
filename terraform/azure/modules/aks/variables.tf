@@ -163,14 +163,8 @@ variable "user_max_count" {
 ############################################
 
 variable "availability_zones" {
-  description = "Availability Zones"
-  type        = list(string)
-
-  default = [
-    "1",
-    "2",
-    "3"
-  ]
+  type    = list(string)
+  default = []
 }
 
 ############################################
@@ -181,4 +175,13 @@ variable "tags" {
   description = "Resource Tags"
   type        = map(string)
   default     = {}
+}
+
+
+variable "tenant_id" {
+  type = string
+}
+
+variable "admin_group_object_ids" {
+  type = list(string)
 }

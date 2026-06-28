@@ -254,4 +254,7 @@ module "aks" {
 
   log_analytics_workspace_id = module.loganalytics.workspace_id
 
+  tenant_id = var.tenant_id
+
+  admin_group_object_ids = var.admin_group_object_ids
 }

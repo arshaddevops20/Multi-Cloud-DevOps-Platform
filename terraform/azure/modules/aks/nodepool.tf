@@ -24,7 +24,9 @@ resource "azurerm_kubernetes_cluster_node_pool" "apps" {
 
   max_count             = var.user_max_count
 
-  zones = var.availability_zones
+#   zones = var.availability_zones
+
+    zones = length(var.availability_zones) > 0 ? var.availability_zones : null
 
   os_disk_size_gb = 128
 

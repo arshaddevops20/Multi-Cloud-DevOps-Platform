@@ -46,6 +46,10 @@ resource "azurerm_kubernetes_cluster" "this" {
 
  azure_active_directory_role_based_access_control {
 
+  tenant_id = var.tenant_id
+
+  admin_group_object_ids = var.admin_group_object_ids
+
   azure_rbac_enabled = true
 
 }
@@ -70,8 +74,10 @@ resource "azurerm_kubernetes_cluster" "this" {
 
     max_count = var.system_max_count
 
-    zones = var.availability_zones
+    # zones = var.availability_zones
 
+    zones = length(var.availability_zones) > 0 ? var.availability_zones : null
+    
     type = "VirtualMachineScaleSets"
 
     os_disk_size_gb = 128
