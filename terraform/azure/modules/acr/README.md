@@ -17,12 +17,12 @@
 - Login Server
 
 
-GitHub Actions
-       │
-Docker Build
-       │
-Azure Container Registry
-       │
-AKS
-       │
-Pods
+            GitHub Actions
+                  │
+            Docker Build
+                  │
+            Azure Container Registry
+                  │
+                  AKS
+                  │
+                  Pods
